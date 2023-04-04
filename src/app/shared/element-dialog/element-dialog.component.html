@@ -1,0 +1,26 @@
+<h1  *ngIf="!isChange" mat-dialog-title>Criar Aluno</h1>
+<h1  *ngIf="isChange"mat-dialog-title>Editar Aluno</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Cpf</mat-label>
+    <input matInput [(ngModel)]="data.cpf">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="data.nome">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Plano</mat-label>
+    <mat-select [(ngModel)]="data.plano">
+      <mat-option value="Musculação mensal">Musculação mensal</mat-option>
+      <mat-option value="Musculação semestral">Musculação semestral</mat-option>
+      <mat-option value="Musculação anual">Musculação anual</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button *ngIf="!isChange"  [mat-dialog-close]="data" cdkFocusInitial>Criar</button>
+  <button mat-button *ngIf="isChange"  [mat-dialog-close]="data" cdkFocusInitial>Editar</button>
+
+</div>
